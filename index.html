@@ -9,27 +9,35 @@
 
   
   <script language="JavaScript" src="main.js"></script>
+  <link rel="stylesheet" href="main.css" type="text/css">
+
+
+  <h1>Risk Battle Calculator</h1>
 
   
   <body>
 
-    <form>
-      <label>Attacking player units: </label>
-      <input type="text" id="in_attack_units">
-    </form>
+    <div id="div_inputs">
+      <form>
+        <label> Attacking units: 
+          <input type="text" id="in_attack_units" class="input_num_units">
+        </label>
+      </form>
+      <form>
+        <label> Defending units: 
+          <input type="text" id="in_defend_units" class="input_num_units">
+        </label>
+      </form>
+    </div>
 
-    <form>
-      <label>Defending player units: </label>
-      <input type="text" id="in_defend_units">
-    </form>
+    <br> <br> <br>
 
     <input type="submit"
            onclick="battleFromBattleButton();"
-           value="Battle!"><br>
+           value="Battle!">
+    <br>
 
-    <div id="div1"></div>
-
-
+    <div id="div_results"></div>
     
   </body>
 

@@ -7,7 +7,7 @@ def create_dice_plots():
         fig, ax = plt.subplots(figsize=(2, 2), frameon=False)
         ax.axis('off')
         ax.add_patch(patches.Rectangle(
-            (0, 0), 1, 1, linewidth=0, facecolor='#eeeeee'
+            (0, 0), 1, 1, linewidth=0, facecolor='#ffffff'
         ))
         if die_num in [1, 3, 5]:
             ax.add_patch(patches.Circle(

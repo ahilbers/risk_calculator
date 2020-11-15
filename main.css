@@ -1,0 +1,36 @@
+body {
+    background-color: #eeeeee;
+}
+
+h1 {
+    font-family: Palatino;
+    color: black;
+    text-align: center;
+}
+
+#div_inputs {
+    width: 250px;
+}
+
+#div_inputs label {
+    float: left;
+    width: 160px;
+    display: block;
+}
+
+#div_inputs input {
+    float: right;
+    width: 25px;
+    display: inline;
+}
+
+p {
+    font-family: Palatino;
+    font-size: 14px;
+}
+
+/* .input_num_units { */
+/*     display: inline; */
+/*     font-family: Palatino; */
+    /* width: 30px; */
+/* } */

@@ -97,7 +97,7 @@ function renderRoundInfo(roundInfoDict) {
                                             + d.unitsAttackLeftAtEnd + " "
                                             + d.unitsDefendLeftAtEnd));
     par.appendChild(document.createElement("br"));
-    document.getElementById("div1").appendChild(par);
+    document.getElementById("div_results").appendChild(par);
     
 }
 
