@@ -1,36 +1,59 @@
-body {
-    background-color: #eeeeee;
+/* body { */
+/*     background-color: #eeeeee; */
+/* } */
+
+/* h1 { */
+/*     font-family: Palatino; */
+/*     color: black; */
+/*     text-align: center; */
+/* } */
+
+/* #div_inputs { */
+/*     width: 250px; */
+/* } */
+
+/* #div_inputs label { */
+/*     float: left; */
+/*     width: 160px; */
+/*     display: block; */
+/* } */
+
+/* #div_inputs input { */
+/*     float: right; */
+/*     width: 25px; */
+/*     display: inline; */
+/* } */
+
+/* #div_submit_button input { */
+/*     float: left; */
+/*     clear: left; */
+/*     display: block; */
+/* } */
+
+/* p { */
+/*     font-family: Palatino; */
+/*     font-size: 14px; */
+/* } */
+
+/* /\* .input_num_units { *\/ */
+/* /\*     display: inline; *\/ */
+/* /\*     font-family: Palatino; *\/ */
+/*     /\* width: 30px; *\/ */
+/* /\* } *\/ */
+
+* {
+    font-family: Palatino;
 }
 
 h1 {
-    font-family: Palatino;
-    color: black;
+    background-color: black;
     text-align: center;
+    color: white;
+    padding: 5px 10px 0px;
+    margin: 0px 0px 0px;
+    display: inline-block;
 }
 
-#div_inputs {
-    width: 250px;
+.center {
+    color: blue;
 }
-
-#div_inputs label {
-    float: left;
-    width: 160px;
-    display: block;
-}
-
-#div_inputs input {
-    float: right;
-    width: 25px;
-    display: inline;
-}
-
-p {
-    font-family: Palatino;
-    font-size: 14px;
-}
-
-/* .input_num_units { */
-/*     display: inline; */
-/*     font-family: Palatino; */
-    /* width: 30px; */
-/* } */
