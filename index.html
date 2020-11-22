@@ -2,88 +2,48 @@
 <html lang="en">
   <meta charset="UTF-8">
 
-  
-  <!-- <head> -->
-  <!--   <title>Risk Battle Calculator</title> -->
-  <!-- </head> -->
-
-  
-  <!-- <script language="JavaScript" src="main.js"></script> -->
-  <!-- <link rel="stylesheet" href="main.css" type="text/css"> -->
-
-
-  <!-- <h1>Risk Battle Calculator</h1> -->
-
-  
-  <!-- <body> -->
-
-  <!--   <div id="div_inputs"> -->
-  <!--     <form> -->
-  <!--       <label> Attacking units:  -->
-  <!--         <input type="text" id="in_attack_units" class="input_num_units"> -->
-  <!--       </label> -->
-  <!--     </form> -->
-  <!--     <form> -->
-  <!--       <label> Defending units:  -->
-  <!--         <input type="text" id="in_defend_units" class="input_num_units"> -->
-  <!--       </label> -->
-  <!--     </form> -->
-  <!--   </div> -->
-
-  <!--   <div id="div_submit_button"> -->
-  <!--     <input type="submit" -->
-  <!--            onclick="battleFromBattleButton();" -->
-  <!--            value="Battle!"> -->
-  <!--   </div> -->
-
-
-  <!--   <br> <br> <br> -->
-
-  <!--   <div id="div_results"></div> -->
-    
-    <!-- </body> -->
-
-
-
-
-  <head>
-    <title>Risk Battle Calculator</title>
-  </head>
-
-  
+  <head><title>Risk Battle Calculator</title></head>
   <script language="JavaScript" src="main.js"></script>
   <link rel="stylesheet" href="main.css" type="text/css">
 
-
   <div id="title">
+    <!-- <img src="img/cannon.png" height="40" -->
+    <!--      style="position: relative; bottom: -9px"> -->
     <h1>Risk Battle Calculator</h1>
-    <img src="img/cannon.png" height="30">
+    <img src="img/cannon.png" height="40"
+         style="position: relative; bottom: -9px">
   </div>
-
+  <br>
 
   
   <body>
 
-    <h2>A subtitle</h2>
+    <div id="div_inputs">
+      <form>
+        <label> Attacking units:
+          <input type="text" id="in_attack_units" class="input_num_units">
+        </label>
+      </form>
+      <form>
+        <label> Defending units:
+          <input type="text" id="in_defend_units" class="input_num_units">
+        </label>
+      </form>
+    </div>
 
-    <p id="p1" class="center">
-      This is some text. We're going to mess with this text.
-    </p>
+    <div id="div_submit_button">
+      <input type="submit"
+             onclick="battleFromBattleButton();"
+             value="Battle!">
+    </div>
 
-    <p id="p2">
-      This is some more text. We can change this also.
-    </p>
+
+    <br> <br> <br>
+
+    <div id="div_results"></div>
     
     
   </body>
-
-
-  
-
-
-
-  
-
   
   
 </html>

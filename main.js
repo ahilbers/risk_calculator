@@ -49,9 +49,19 @@ function battleOneRound(unitsAttack, unitsDefend, roundInfoDict) {
 }
 
 
+function getSoldierImage(roll) {
+    let DOM_img = document.createElement("img");
+    DOM_img.src = "img/soldier.png";
+    DOM_img.height = 50;
+    DOM_img.width = 30;
+    DOM_img.hspace = 5;
+    DOM_img.vspace = 5;
+    return DOM_img
+}
+
+
 function getDieImage(roll) {
     let DOM_img = document.createElement("img");
-    // DOM_img.src = "img/die_1.png"
     DOM_img.src = "img/die_" + roll.toString() + ".png";
     DOM_img.height = 50;
     DOM_img.width = 50;
@@ -62,7 +72,7 @@ function getDieImage(roll) {
 
 
 function renderRoundInfo(roundInfoDict) {
-    d = roundInfoDict;    // Makes code more concise
+    d = roundInfoDict;    // Make code concise
     par = document.createElement("p");
 
     par.appendChild(document.createTextNode("Round number "+d.roundNumber));
@@ -71,19 +81,21 @@ function renderRoundInfo(roundInfoDict) {
                                             + d.unitsAttackLeftAtStart + " "
                                             + d.unitsDefendLeftAtStart));
     par.appendChild(document.createElement("br"));
+    for (i=0; i<d.unitsAttackLeftAtStart; i++) {
+        par.appendChild(getSoldierImage())
+    }
+    par.appendChild(document.createElement("br"));
     par.appendChild(document.createTextNode("Units used: "
                                             + d.unitsAttackRound + " "
                                             + d.unitsDefendRound));
     par.appendChild(document.createElement("br"));
-    par.appendChild(document.createTextNode("Rolls attack: "
-                                            + d.rollsAttack));
+    par.appendChild(document.createTextNode("Rolls attack: "));
     par.appendChild(document.createElement("br"));
     for (i=0; i<d.rollsAttack.length; i++) {
         par.appendChild(getDieImage(d.rollsAttack[i]));
     }
     par.appendChild(document.createElement("br"));
-    par.appendChild(document.createTextNode("Rolls defend: "
-                                            + d.rollsDefend));
+    par.appendChild(document.createTextNode("Rolls defend: "));
     par.appendChild(document.createElement("br"));
     for (i=0; i<d.rollsDefend.length; i++) {
         par.appendChild(getDieImage(d.rollsDefend[i]));
