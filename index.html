@@ -1,6 +1,8 @@
 <!DOCTYPE html>
 <html lang="en">
-  <meta charset="UTF-8">
+  <meta charset="UTF-8"
+        name="viewport"
+        content="width=device-width, initial-scale=1.0">
 
   <head><title>Risk Battle Calculator</title></head>
   <script language="JavaScript" src="main.js"></script>
@@ -18,29 +20,74 @@
   
   <body>
 
-    <div id="div_inputs">
-      <form>
-        <label> Attacking units:
-          <input type="text" id="in_attack_units" class="input_num_units">
-        </label>
-      </form>
-      <form>
-        <label> Defending units:
-          <input type="text" id="in_defend_units" class="input_num_units">
-        </label>
-      </form>
+    <!-- <div id="div_inputs"> -->
+    <!--   <form> -->
+    <!--     <label> Attacking units: -->
+    <!--       <input type="text" id="in_attack_units" class="input_num_units"> -->
+    <!--     </label> -->
+    <!--   </form> -->
+    <!--   <form> -->
+    <!--     <label> Defending units: -->
+    <!--       <input type="text" id="in_defend_units" class="input_num_units"> -->
+    <!--     </label> -->
+    <!--   </form> -->
+    <!-- </div> -->
+
+    <!-- <div id="div_submit_button"> -->
+    <!--   <input type="submit" -->
+    <!--          onclick="battleFromBattleButton();" -->
+    <!--          value="Battle!"> -->
+    <!-- </div> -->
+
+    <!-- <br> <br> <br> -->
+
+    <!-- <div id="div_results"></div> -->
+
+    <div class="results-row">
+      <div class="col-1">
+        <br>
+        Attackers
+        <br> <br>
+        Defenders
+        <br> <br>
+      </div>
+      <div class="col-2">
+        <img class="die-image" src="img/die_6.png">
+        <img class="die-image" src="img/die_4.png">
+        <img class="die-image" src="img/die_2.png">
+        <br>
+        <img class="die-image" src="img/die_5.png">
+        <img class="die-image" src="img/die_3.png">
+      </div>
+      <div class="col-3">
+        <img class="soldier-image" src="img/soldier.png">
+        <img class="soldier-image" src="img/soldier.png">
+        <img class="soldier-image" src="img/soldier.png">
+        <img class="soldier-image" src="img/soldier.png">
+        <img class="soldier-image" src="img/soldier.png">
+        <img class="soldier-image" src="img/soldier.png">
+        <img class="soldier-image" src="img/soldier.png">
+        <img class="soldier-image" src="img/soldier.png">
+        <img class="soldier-image" src="img/soldier.png">
+        <img class="soldier-image" src="img/soldier.png">
+        <img class="soldier-image" src="img/soldier.png">
+        <br>
+        <img class="soldier-image" src="img/soldier.png">
+        <img class="soldier-image" src="img/soldier.png">
+        <img class="soldier-image" src="img/soldier.png">
+        <img class="soldier-image" src="img/soldier.png">
+        <img class="soldier-image" src="img/soldier.png">
+        <img class="soldier-image" src="img/soldier.png">
+        <img class="soldier-image" src="img/soldier.png">
+        <img class="soldier-image" src="img/soldier.png">
+        <img class="soldier-image" src="img/soldier.png">
+        <img class="soldier-image" src="img/soldier.png">
+        <img class="soldier-image" src="img/soldier.png">
+      </div>
     </div>
 
-    <div id="div_submit_button">
-      <input type="submit"
-             onclick="battleFromBattleButton();"
-             value="Battle!">
-    </div>
 
-
-    <br> <br> <br>
-
-    <div id="div_results"></div>
+    
     
     
   </body>

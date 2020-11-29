@@ -52,10 +52,10 @@ function battleOneRound(unitsAttack, unitsDefend, roundInfoDict) {
 function getSoldierImage(roll) {
     let DOM_img = document.createElement("img");
     DOM_img.src = "img/soldier.png";
-    DOM_img.height = 50;
-    DOM_img.width = 30;
-    DOM_img.hspace = 5;
-    DOM_img.vspace = 5;
+    DOM_img.height = 40;
+    DOM_img.width = 25;
+    DOM_img.hspace = 0;
+    DOM_img.vspace = 0;
     return DOM_img
 }
 
@@ -82,6 +82,10 @@ function renderRoundInfo(roundInfoDict) {
                                             + d.unitsDefendLeftAtStart));
     par.appendChild(document.createElement("br"));
     for (i=0; i<d.unitsAttackLeftAtStart; i++) {
+        par.appendChild(getSoldierImage())
+    }
+    par.appendChild(document.createElement("br"));
+    for (i=0; i<d.unitsDefendLeftAtStart; i++) {
         par.appendChild(getSoldierImage())
     }
     par.appendChild(document.createElement("br"));
