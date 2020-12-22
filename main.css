@@ -15,32 +15,32 @@ body {
     background-color: #eeeeee;
 }
 
-/* #div_inputs { */
-/*     width: 200px; */
-/*     margin-bottom: 30px; */
-/* } */
+#div_inputs {
+    width: 200px;
+    margin-bottom: 30px;
+}
 
-/* #div_inputs label { */
-/*     float: left; */
-/*     width: 160px; */
-/*     display: block; */
-/* } */
+#div_inputs label {
+    float: left;
+    width: 160px;
+    display: block;
+}
 
-/* #div_inputs input { */
-/*     float: right; */
-/*     width: 25px; */
-/*     display: inline; */
-/* } */
+#div_inputs input {
+    float: right;
+    width: 25px;
+    display: inline;
+}
 
-/* #div_submit_button input { */
-/*     float: left; */
-/*     clear: left; */
-/*     display: block; */
-/*     padding: 5px 0px 5px; */
-/*     margin: 10px 0px 0px; */
-/*     font-size: 15px; */
-/*     width: 160px; */
-/* } */
+#div_submit_button input {
+    float: left;
+    clear: left;
+    display: block;
+    padding: 5px 0px 5px;
+    margin: 10px 0px 0px;
+    font-size: 15px;
+    width: 160px;
+}
 
 .results-row{
     display: inline-block;
@@ -104,4 +104,12 @@ body {
     width: 25px;
     height: 40px;
     margin: 0px -5px 0px;
+    opacity: 1;
+}
+
+.soldier-image-lost {
+    width: 25px;
+    height: 40px;
+    margin: 0px -5px 0px;
+    opacity: 0.2;
 }
