@@ -38,14 +38,26 @@ function battleOneRound(unitsAttack, unitsDefend, roundInfoDict) {
     // Determine the losses to both the attacker and defender
     let lossAttack = 0;
     let lossDefend = 0;
+    let wins = []
+    for (i=0; i<Math.max(rollsAttack.length, rollsDefend.length); i++) {
+        wins[i] = 'N';
+    };
     for (i=0; i<Math.min(rollsAttack.length, rollsDefend.length); i++) {
-        if (rollsAttack[i] > rollsDefend[i])
+        if (rollsAttack[i] > rollsDefend[i]) {
             lossDefend++;
-        else
+            wins[i] = 'A';
+        }
+        else {
             lossAttack++;
+            wins[i] = 'D'
+        }
     }
 
-    return [lossAttack, lossDefend];
+    console.log(' ');
+    console.log(wins);
+    console.log(' ');
+
+    return [lossAttack, lossDefend, wins];
 }
 
 
@@ -60,60 +72,101 @@ function getSoldierImage(roll) {
 }
 
 
-function getDieImage(roll) {
-    let DOM_img = document.createElement("img");
-    DOM_img.src = "img/die_" + roll.toString() + ".png";
-    DOM_img.height = 50;
-    DOM_img.width = 50;
-    DOM_img.hspace = 5;
-    DOM_img.vspace = 5;
-    return DOM_img
+function getDieImage(roll, color) {
+    let img_div = document.createElement("div");
+    let img_color = document.createElement("img");
+    let img = document.createElement("img");
+    img_div.className = "die-image-parent";
+    img_color.className = "die-image-color";
+    img.className = "die-image";
+    img_color.src = "img/" + color + ".png";
+    img.src = "img/die_" + roll.toString() + ".png";
+    console.log(img.src);
+    img_div.append(img_color, img);
+    return img_div;
 }
 
 
-function renderRoundInfo(roundInfoDict) {
-    d = roundInfoDict;    // Make code concise
-    par = document.createElement("p");
+function getDieImageInBattle(roll, attack_or_defend, result) {
+    
+}
 
-    par.appendChild(document.createTextNode("Round number "+d.roundNumber));
-    par.appendChild(document.createElement("br"));
-    par.appendChild(document.createTextNode("Units left: "
-                                            + d.unitsAttackLeftAtStart + " "
-                                            + d.unitsDefendLeftAtStart));
-    par.appendChild(document.createElement("br"));
-    for (i=0; i<d.unitsAttackLeftAtStart; i++) {
-        par.appendChild(getSoldierImage())
-    }
-    par.appendChild(document.createElement("br"));
-    for (i=0; i<d.unitsDefendLeftAtStart; i++) {
-        par.appendChild(getSoldierImage())
-    }
-    par.appendChild(document.createElement("br"));
-    par.appendChild(document.createTextNode("Units used: "
-                                            + d.unitsAttackRound + " "
-                                            + d.unitsDefendRound));
-    par.appendChild(document.createElement("br"));
-    par.appendChild(document.createTextNode("Rolls attack: "));
-    par.appendChild(document.createElement("br"));
+
+// Render the results from a single set of rolls
+function renderRoundInfo(roundInfoDict) {
+
+    let d = roundInfoDict;    // Make code concise
+    let results_row = document.createElement("div");
+    results_row.className = "results-row";
+
+    // First column, labels
+    let c1 = document.createElement("div");
+    c1.className = "col-1";
+    c1.append(document.createElement("br"),
+              document.createTextNode("Attack"),
+              document.createElement("br"),
+              document.createElement("br"),
+              document.createTextNode("Defense"),
+              document.createElement("br"));
+
+    // Second column, dice rolls
+    c2 = document.createElement("div");
+    c2.className = "col-2";
     for (i=0; i<d.rollsAttack.length; i++) {
-        par.appendChild(getDieImage(d.rollsAttack[i]));
+        c2.append(getDieImage(d.rollsAttack[i], "green"));
     }
-    par.appendChild(document.createElement("br"));
-    par.appendChild(document.createTextNode("Rolls defend: "));
-    par.appendChild(document.createElement("br"));
+    c2.append(document.createElement("br"));
     for (i=0; i<d.rollsDefend.length; i++) {
-        par.appendChild(getDieImage(d.rollsDefend[i]));
+        c2.append(getDieImage(d.rollsDefend[i], "red"));
     }
-    par.appendChild(document.createElement("br"));
-    par.appendChild(document.createTextNode("Units lost: "
-                                            + d.lossAttack + " "
-                                            + d.lossDefend));
-    par.appendChild(document.createElement("br"));
-    par.appendChild(document.createTextNode("Units left: "
-                                            + d.unitsAttackLeftAtEnd + " "
-                                            + d.unitsDefendLeftAtEnd));
-    par.appendChild(document.createElement("br"));
-    document.getElementById("div_results").appendChild(par);
+    
+
+    // par.appendChild(document.createTextNode("Round number "+d.roundNumber));
+    // par.appendChild(document.createElement("br"));
+    // par.appendChild(document.createTextNode("Units left: "
+    //                                         + d.unitsAttackLeftAtStart + " "
+    //                                         + d.unitsDefendLeftAtStart));
+    // par.appendChild(document.createElement("br"));
+    // for (i=0; i<d.unitsAttackLeftAtStart; i++) {
+    //     par.appendChild(getSoldierImage())
+    // }
+    // par.appendChild(document.createElement("br"));
+    // for (i=0; i<d.unitsDefendLeftAtStart; i++) {
+    //     par.appendChild(getSoldierImage())
+    // }
+    // par.appendChild(document.createElement("br"));
+    // par.appendChild(document.createTextNode("Units used: "
+    //                                         + d.unitsAttackRound + " "
+    //                                         + d.unitsDefendRound));
+    // par.appendChild(document.createElement("br"));
+    // par.appendChild(document.createTextNode("Rolls attack: "));
+    // par.appendChild(document.createElement("br"));
+    // for (i=0; i<d.rollsAttack.length; i++) {
+    //     par.appendChild(getDieImage(d.rollsAttack[i]));
+    // }
+    // par.appendChild(document.createElement("br"));
+    // par.appendChild(document.createTextNode("Rolls defend: "));
+    // par.appendChild(document.createElement("br"));
+    // for (i=0; i<d.rollsDefend.length; i++) {
+    //     par.appendChild(getDieImage(d.rollsDefend[i]));
+    // }
+    // par.appendChild(document.createElement("br"));
+    // par.appendChild(document.createTextNode("Units lost: "
+    //                                         + d.lossAttack + " "
+    //                                         + d.lossDefend));
+    // par.appendChild(document.createElement("br"));
+    // par.appendChild(document.createTextNode("Units left: "
+    //                                         + d.unitsAttackLeftAtEnd + " "
+    //                                         + d.unitsDefendLeftAtEnd));
+    // par.appendChild(document.createElement("br"));
+
+    results_row.appendChild(c1);
+    results_row.appendChild(c2);
+    document.getElementById("div_results").appendChild(results_row);
+    document.getElementById("div_results").append(
+        document.createElement("br"),
+        document.createElement("br"),
+    );
     
 }
 
@@ -141,9 +194,9 @@ function battleUntilEnd(unitsAttackTotal, unitsDefendTotal) {
         // Do the actual battle
         let unitsAttackRound = Math.min(unitsAttackLeft, 3);
         let unitsDefendRound = Math.min(unitsDefendLeft, 2);
-        [lossAttack, lossDefend] = battleOneRound(unitsAttackRound,
-                                                  unitsDefendRound,
-                                                  roundInfoDict);
+        [lossAttack, lossDefend, wins] = battleOneRound(unitsAttackRound,
+                                                        unitsDefendRound,
+                                                        roundInfoDict);
         unitsAttackLeft -= lossAttack;
         unitsDefendLeft -= lossDefend;
         roundNumber++;
@@ -153,9 +206,11 @@ function battleUntilEnd(unitsAttackTotal, unitsDefendTotal) {
         roundInfoDict.unitsDefendRound = unitsDefendRound;
         roundInfoDict.lossAttack = lossAttack;
         roundInfoDict.lossDefend = lossDefend;
+        roundInfoDict.wins = wins;
         roundInfoDict.unitsAttackLeftAtEnd = unitsAttackLeft;
         roundInfoDict.unitsDefendLeftAtEnd = unitsDefendLeft;
 
+        // Render the round info into HTML
         renderRoundInfo(roundInfoDict);
 
         console.log(roundInfoDict);
