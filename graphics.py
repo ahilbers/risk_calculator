@@ -42,27 +42,6 @@ def create_dice_plots():
                     pad_inches=0)
 
 
-def make_legend():
-    """Make a legend for ACF plot."""
-    fig, ax = plt.subplots(figsize=(6.7, 0.5))
-    bbox_props = dict(boxstyle='round,pad=0.3', fc='none',
-                      ec='#c5c8c4', lw=1)
-    text = ('        k-medoids clustering            '
-            'importance subsampling            target')
-    ax.text(0.5, 0.5, text, ha='center', va='center',
-            size=10, bbox=bbox_props)
-
-    ax.add_patch(patches.Rectangle(
-        (0.41, 0.4), 0.05, 0.2, linewidth=0, facecolor='#000000'
-    ))
-    ax.axhline(y=0.5, xmin=0.84, xmax=0.89, color='k', linestyle='--')
-
-    ax.get_xaxis().set_visible(False)
-    ax.get_yaxis().set_visible(False)
-    ax.axis('off')
-    plt.savefig('outputs/legend.pdf', bbox_inches='tight', pad_inches=0)
-
-
 def main():
     create_dice_plots()
 
