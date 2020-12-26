@@ -114,7 +114,7 @@ function renderRoundInfo(roundInfoDict) {
               document.createElement("br"));
 
     // Second column, dice rolls
-    c2 = document.createElement("div");
+    let c2 = document.createElement("div");
     c2.className = "col-2";
     for (i=0; i<d.rollsAttack.length; i++) {
         c2.append(getDieImageInBattle(d.rollsAttack[i], "attack", wins[i]));
@@ -125,7 +125,7 @@ function renderRoundInfo(roundInfoDict) {
     }
 
     // Third column, armies
-    c3 = document.createElement("div");
+    let c3 = document.createElement("div");
     c3.className = "col-3";
     for (i=0; i<d.unitsAttackLeftAtEnd; i++) {
         c3.append(getSoldierImage(false));
@@ -158,17 +158,20 @@ function renderSummaryInfo(roundInfoDict,
                            unitsAttackTotal,
                            unitsDefendTotal) {
 
+    let parentDiv = document.createElement("div");
+    parentDiv.className = "summary-parent";
+
+    let title = document.createElement("div");
+    title.className = "summary-title";
+    title.append(document.createTextNode("Summary: units left"));
+
     let d = roundInfoDict;    // Make code concise
     let results_row = document.createElement("div");
     results_row.className = "results-row";
 
-    console.log("A");
-    console.log(d);
-    console.log("A");
-
     // First column, labels
     let c1 = document.createElement("div");
-    c1.className = "col-1";
+    c1.className = "summary-col-1";
     c1.append(document.createElement("br"),
               document.createTextNode("Attackers"),
               document.createElement("br"),
@@ -179,26 +182,50 @@ function renderSummaryInfo(roundInfoDict,
     // Second column, units left and lost
     let unitsAttackLost = unitsAttackTotal - d.unitsAttackLeftAtEnd;
     let unitsDefendLost = unitsDefendTotal - d.unitsDefendLeftAtEnd;
-    console.log(unitsDefendLost);
-    c2 = document.createElement("div");
-    c2.className = "col-2";
+    let c2 = document.createElement("div");
+    c2.className = "summary-col-2";
+    let boldUnitsAttackLeftTxt = document.createElement("strong");
+    let unitsAttackLeftTxt = document.createTextNode(d.unitsAttackLeftAtEnd);
+    boldUnitsAttackLeftTxt.appendChild(unitsAttackLeftTxt);
+    let boldUnitsDefendLeftTxt = document.createElement("strong");
+    let unitsDefendLeftTxt = document.createTextNode(d.unitsDefendLeftAtEnd);
+    boldUnitsDefendLeftTxt.appendChild(unitsDefendLeftTxt);
+    let unitsAttackLostTxt = document.createTextNode(
+        " (lost " + unitsAttackLost + ")"
+    );
+    let unitsDefendLostTxt = document.createTextNode(
+        " (lost " + unitsDefendLost + ")"
+    );
     c2.append(document.createElement("br"),
-              document.createTextNode(d.unitsAttackLeftAtEnd + " (lost "
-                                      + unitsAttackLost + ")"),
+              boldUnitsAttackLeftTxt,
+              unitsAttackLostTxt,
               document.createElement("br"),
               document.createElement("br"),
-              document.createTextNode(d.unitsDefendLeftAtEnd + " (lost "
-                                      + unitsDefendLost + ")"),
+              boldUnitsDefendLeftTxt,
+              unitsDefendLostTxt,
               document.createElement("br"));
 
+    // Third column, armies
+    let c3 = document.createElement("div");
+    c3.className = "col-3";
+    for (i=0; i<d.unitsAttackLeftAtEnd; i++) {
+        c3.append(getSoldierImage(false));
+    }
+    for (i=0; i<unitsAttackTotal-d.unitsAttackLeftAtEnd; i++) {
+        c3.append(getSoldierImage(true));
+    }
+    c3.append(document.createElement("br"));
+    for (i=0; i<d.unitsDefendLeftAtEnd; i++) {
+        c3.append(getSoldierImage(false));
+    }
+    for (i=0; i<unitsDefendTotal-d.unitsDefendLeftAtEnd; i++) {
+        c3.append(getSoldierImage(true));
+    }
+
     // Put it all together
-    results_row.appendChild(c1);
-    results_row.appendChild(c2);
-    document.getElementById("div_results").appendChild(results_row);
-    document.getElementById("div_results").append(
-        document.createElement("br"),
-        document.createElement("br"),
-    );
+    results_row.append(c1, c2, c3);
+    parentDiv.append(title, results_row);
+    document.getElementById("div_results").appendChild(parentDiv);
 }
 
 
@@ -248,11 +275,6 @@ function battleUntilEnd(unitsAttackTotal, unitsDefendTotal) {
     }
 
     renderSummaryInfo(roundInfoDict, unitsAttackTotal, unitsDefendTotal);
-
-    // console.log("Hello");
-    // console.log(roundInfoDict);
-    // console.log(unitsAttackTotal);
-    // console.log(unitsDefendTotal);
 
     return 0;
 }

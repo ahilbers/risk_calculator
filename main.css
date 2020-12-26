@@ -42,7 +42,7 @@ body {
     width: 160px;
 }
 
-.results-row{
+.results-row {
     display: inline-block;
 }
 
@@ -73,7 +73,6 @@ body {
 .col-3 {
     display: inline-block;
     vertical-align: middle;
-    width: 500px;
     height: 80px;
     padding: 10px 10px 0px;
     margin: 0px 0px 0px;
@@ -113,4 +112,34 @@ body {
     height: 30px;
     margin: 1px 0px 1px;
     opacity: 0.2;
+}
+
+.summary-parent {
+    padding: 10px 10px 5px;
+    margin: 0px 0px 5px;
+    border-style: solid;
+}
+
+.summary-title {
+    font-size: 20px;
+}
+
+.summary-col-1 {
+    display: inline-block;
+    vertical-align: middle;
+    width: 70px;
+    height: 80px;
+    padding: 0px 0px 0px;
+    margin: -5px 0px 0px;
+    text-align: left;
+}
+
+.summary-col-2 {
+    display: inline-block;
+    vertical-align: middle;
+    width: 120px;
+    height: 80px;
+    padding: 0px 5px 0px;
+    margin: -5px 0px 0px;
+    text-align: center;
 }
