@@ -13,25 +13,26 @@
     <img src="img/cannon.png" height="40"
          style="position: relative; bottom: -9px; left: 5px">
   </div>
-  <br>
 
   <body>
     <div id="div_inputs">
-      <form>
-        <label> Attacking units:
-          <input type="text" id="in_attack_units" class="input_num_units">
-        </label>
-      </form>
-      <form>
-        <label> Defending units:
-          <input type="text" id="in_defend_units" class="input_num_units">
-        </label>
-      </form>
-    </div>
-    <div id="div_submit_button">
-      <input type="submit"
-             onclick="battleFromBattleButton();"
-             value="Battle!">
+      <div id="div_input_units">
+        <form>
+          <label> Attacking units:
+            <input type="text" id="in_attack_units" class="input_num_units">
+          </label>
+        </form>
+        <form>
+          <label> Defending units:
+            <input type="text" id="in_defend_units" class="input_num_units">
+          </label>
+        </form>        
+      </div>
+      <div id="div_submit_button">
+        <input type="submit"
+               onclick="battleFromBattleButton();"
+               value="Battle!">
+      </div>
     </div>
     <br> <br> <br> <br>
     <div id="div_results"></div>

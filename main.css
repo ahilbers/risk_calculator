@@ -16,8 +16,14 @@ body {
 }
 
 #div_inputs {
+    width: 600px;
+    margin: 0px 110px 30px;
+    display: inline;
+}
+
+#div_input_units {
+    display: block;
     width: 200px;
-    margin-bottom: 30px;
 }
 
 #div_inputs label {
@@ -32,14 +38,22 @@ body {
     display: inline;
 }
 
+#div_submit_button {
+    display: inline;
+}
+
+#div_submit_button input {
+    display: inline-block;
+}
+
 #div_submit_button input {
     float: left;
-    clear: left;
-    display: block;
     padding: 5px 0px 5px;
-    margin: 10px 0px 0px;
+    margin: -20px 10px 0px;
     font-size: 15px;
-    width: 160px;
+    width: 260px;
+    height: 40px;
+    display: inline;
 }
 
 .results-row {
@@ -49,6 +63,16 @@ body {
 .results-row > * {
     font-size: 16px;
     display: inline-block;
+}
+
+.round-title {
+    text-align: center;
+    vertical-align: middle;
+    width: 70px;
+    height: 50px;
+    padding: 0px 0px 0px;
+    margin: 0px 10px 0px;
+    font-weight: bold;
 }
 
 .col-1 {

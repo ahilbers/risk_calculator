@@ -103,6 +103,11 @@ function renderRoundInfo(roundInfoDict) {
     let results_row = document.createElement("div");
     results_row.className = "results-row";
 
+    let roundTitle = document.createElement("div");
+    roundTitle.className = "round-title"
+    roundTitle.append(document.createElement("br"),
+                      document.createTextNode("Round " + d.roundNumber));
+
     // First column, labels
     let c1 = document.createElement("div");
     c1.className = "col-1";
@@ -142,6 +147,7 @@ function renderRoundInfo(roundInfoDict) {
     }
 
     // Put it all together
+    results_row.append(roundTitle);
     results_row.appendChild(c1);
     results_row.appendChild(c2);
     results_row.appendChild(c3);
@@ -163,7 +169,7 @@ function renderSummaryInfo(roundInfoDict,
 
     let title = document.createElement("div");
     title.className = "summary-title";
-    title.append(document.createTextNode("Summary: units left"));
+    title.append(document.createTextNode("Summary (units left)"));
 
     let d = roundInfoDict;    // Make code concise
     let results_row = document.createElement("div");
@@ -232,7 +238,15 @@ function renderSummaryInfo(roundInfoDict,
 function battleUntilEnd(unitsAttackTotal, unitsDefendTotal) {
 
     if (!arePositiveInts(unitsAttackTotal, unitsDefendTotal))
-        return "[ERROR] Both player units should be positive whole numbers.";
+        window.alert("Error: Attacking and defending units "
+                     + "should be whole numbers.");
+
+    // Remove any results nodes that are already there (in case
+    // a battle is run more than once)x
+    let divResults = document.getElementById("div_results");
+    while (divResults.firstChild) {
+        divResults.removeChild(divResults.firstChild);
+    }
 
     // Create new variables (*not* references to the same object -- these
     // are different variables) that track the amount of units left
